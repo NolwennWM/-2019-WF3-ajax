@@ -1,5 +1,5 @@
 <?php
-sleep(3);
+// sleep(3);
 
 $sentences = [
     'Hello world!',
@@ -10,5 +10,6 @@ $sentences = [
 ];
 
 echo $sentences[array_rand($sentences)];
+
 
 ?>
