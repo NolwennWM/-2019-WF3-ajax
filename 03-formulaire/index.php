@@ -52,9 +52,17 @@
                 beforeSend: function(){
                     $('h1').html('Chargement en cours...');
                 },
+                complete: function () {
+                    $('h1').html('');
+                }
             }).done(function (message) {
                 if(message.success){
-                    
+                    var message = response.success;
+                    $('#success').append($('<li>'+message.name+' : '+message.message+'</li>'));
+                }
+                
+                if (response.errors) {
+                    console.log(response.errors);
                 }
             });
         });
