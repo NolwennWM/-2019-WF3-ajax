@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +22,17 @@
     </div>
     <div id="cars">
 
+    </div>
+    <div id="formu">
+        <form action="" >
+            <label for="brand">Marque</label><br>
+                <input type="text" name="brand" id="brand"><br>
+            <label for="model">Modèle</label><br>
+                <input type="text" name="model" id="model"><br>
+            <label for="price">Prix</label><br>
+                <input type="number" name="price" id="price"><br>
+                <button>Envoyer</button>
+        </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script>
@@ -46,6 +58,20 @@
             var togcar = $("div#cars > div");
             togcar.on('click', function(){
                 $(this).find("div").toggle();
+            });
+        });
+
+        form.on('submit', function (event) {
+            event.preventDefault();
+
+            var formData = form.serialize(); 
+
+            $.ajax({
+                type: 'POST',
+                url: form.attr('action'),
+                data: formData,
+            }).done(function (message) {
+
             });
         });
     </script>
